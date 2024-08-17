@@ -48,7 +48,7 @@ main {
     font-size: 16px;
     line-height: 20px;
 }
-.my-temperature-app-details strong {
+.my-temperature-app-details.strong {
     color: #f65282;
 }
 
