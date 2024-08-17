@@ -51,21 +51,25 @@ li.my-temperature-app-details {
     line-height: 24px;
     font-weight: 500;
     list-style: none;
+    margin-left: 10px;
 }
 .my-temperature-app-details strong {
     color: #f65282;
 }
 
 .my-temperature-app-temperature {
-    
+    display: flex;
+    flex-direction: row;
     font-size: 88px;
-    margin-right: 120px;
+    margin-right: 10px;
     font-weight: bold;
+
 }
 
 .my-temperature-app-icon {
     font-size: 44px;
-    margin-top: 22px;
+    margin: 0 auto;
+    
 }
 .my-temperature-app-unit {
     margin-top: 30px;
