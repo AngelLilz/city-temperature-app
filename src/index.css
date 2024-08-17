@@ -51,7 +51,7 @@ li.my-temperature-app-details {
     line-height: 24px;
     font-weight: 500;
     list-style: none;
-    margin-right: 15px;
+    margin-left: 15px;
 }
 .my-temperature-app-details strong {
     color: #f65282;
