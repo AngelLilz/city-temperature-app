@@ -58,14 +58,15 @@ li.my-temperature-app-details {
 
 
 
-.my-temperature-app-icon {
-    font-size: 44px;
-    margin-top: 22px;
-}
 .my-temperature-app-temperature {
     font-size: 88px;
     margin-right: 10px;
     font-weight: bold;
+}
+
+.my-temperature-app-icon {
+    font-size: 44px;
+    margin-top: 22px;
 }
 .my-temperature-app-unit {
     margin-top: 30px;
