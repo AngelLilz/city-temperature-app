@@ -46,12 +46,29 @@ main {
 }
 .my-temperature-app-details {
     font-size: 16px;
-    line-height: 20px;
+    color: rgba(39, 33, 66, 0.4);
+    line-height: 24px;
+    font-weight: 500;
 }
-.my-temperature-app-details.strong {
+.my-temperature-app-details strong {
     color: #f65282;
 }
-
+.my-temperature-app-temperature-container {
+    display: flex;
+}
+.my-temperature-app-icon {
+    font-size: 44px;
+    margin-top: 22px;
+}
+.my-temperature-app-temperature {
+    font-size: 88px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+.my-temperature-app-unit {
+    margin-top: 30px;
+    font-size: 28px;
+}
 footer {
     border-top: 1px solid #f9f7fe;
     padding: 30px 0 0 0;
