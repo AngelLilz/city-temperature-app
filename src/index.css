@@ -20,7 +20,7 @@ header {
     background-color: #f9f7fe;
     border: none;
     border-radius: 6px;
-    width: 80%;
+    width: 70%;
     font-size: 16px;
     padding: 15px 20px;
 }
@@ -45,25 +45,26 @@ main {
     font-size: 38px;
     line-height: 48px;
 }
-.my-temperature-app-details {
+li.my-temperature-app-details {
     font-size: 16px;
     color: rgba(39, 33, 66, 0.4);
     line-height: 24px;
     font-weight: 500;
+    list-style: none;
 }
 .my-temperature-app-details strong {
     color: #f65282;
 }
-.my-temperature-app-temperature-container {
-    display: flex;
-}
+
+
+
 .my-temperature-app-icon {
     font-size: 44px;
     margin-top: 22px;
 }
 .my-temperature-app-temperature {
     font-size: 88px;
-    margin-left: 10px;
+    margin-right: 10px;
     font-weight: bold;
 }
 .my-temperature-app-unit {
