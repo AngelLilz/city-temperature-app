@@ -38,6 +38,7 @@ main {
 }
 .my-temperature-app-data {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 .my-temperature-app-city {
@@ -51,7 +52,7 @@ li.my-temperature-app-details {
     line-height: 24px;
     font-weight: 500;
     list-style: none;
-    margin-left: 15px;
+    margin-left: -40px;
 }
 .my-temperature-app-details strong {
     color: #f65282;
