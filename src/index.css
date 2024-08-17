@@ -56,11 +56,10 @@ li.my-temperature-app-details {
     color: #f65282;
 }
 
-
-
 .my-temperature-app-temperature {
+    
     font-size: 88px;
-    margin-right: 10px;
+    margin-right: 120px;
     font-weight: bold;
 }
 
