@@ -60,7 +60,7 @@ li.my-temperature-app-details {
 .my-temperature-app-temperature {
     display: flex;
     flex-direction: row;
-    
+    justify-content: right;
     font-size: 88px;
     margin-right: 10px;
     font-weight: bold;
