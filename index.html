@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/index.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <title>Ange's weather app</title>
 </head>
 <div class="my-temperature-app">
@@ -19,13 +22,19 @@
         <h1 class="my-temperature-app-city">
             Perth
         </h1>
-        <p class="my-temperature-app-details">
+        <ul> 
+            <li class="my-temperature-app-details">
             Friday 16th August 2024, 21:00, showers continuing
+        </li>
             <br>
-            Humidity: 98%, Wind: 6km/h
-        </p>
+            <li>Humidity: <strong>98%</strong>, Wind: <strong>6km/h</strong>  
+            </li>      
+        </ul>
     </div>
-    <div class="my-temperature-app-temperature">🌧️ 18℃</div>
+    <div class="my-temperature-app-temperature">
+        <div class="my-temperature-app-icon">🌧️</div>
+        <div class="my-temperature-app-value">18</div>
+        <div class="my-temperature-app-unit">℃</div>
 </main>
       <footer>This project was coded by <a href="https://github.com/AngelLilz" target="_blank">Angela Ardizzone</a> and open-sourced on <a href="https://github.com/AngelLilz/Anges-weather-app" target="_blank">Github</a> and website hosted on <a href="https://app.netlify.com/sites/citytemperatureapp/overview/">Netlify</a> 
       </footer>
