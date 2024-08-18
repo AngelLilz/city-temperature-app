@@ -70,7 +70,8 @@ li.my-temperature-app-details {
 }
 
 .my-temperature-app-icon {
-    font-size: 44px;
+   width: 88px;
+   height: 88px;
     
     
 }
