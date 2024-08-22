@@ -53,12 +53,13 @@ function handleSearchSubmit(event) {
 }
   function getForecast(city) {
     let apiKey = "5a3530d402b8t82b0332df19d81od2ad";
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
-    console.log(apiUrl);
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}units=metric`;
+    axios(apiUrl).then(displayForecast);
+    
   }
 
-function displayForecast() {
-  let forecast = document.querySelector("#forecast");
+function displayForecast(response) {
+  console.log(response.data);
 
   let days = ["Fri", "Sat", "Sun", "Mon"];
   let forecastHtml = "";
@@ -87,4 +88,5 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Perth");
-displayForecast();
+getForecast("Perth");
+
