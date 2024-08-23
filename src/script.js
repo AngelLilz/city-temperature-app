@@ -18,7 +18,7 @@ function refreshWeather(response) {
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   temperatureElement.innerHTML = Math.round(temperature);
 }
-getForecast(response.data.city);
+
 
 function formatDate(date) {
   let minutes = date.getMinutes();
@@ -64,7 +64,7 @@ function displayForecast(response) {
   console.log(response.data);
 
   let days = ["Fri", "Sat", "Sun", "Mon"];
-  let forecastHtml = "#";
+  let forecastHtml = "";
 
   days.forEach(function (day) {
     forecast.innerHTML =
