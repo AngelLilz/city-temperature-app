@@ -18,6 +18,8 @@ function refreshWeather(response) {
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   temperatureElement.innerHTML = Math.round(temperature);
 }
+getForecast(response.data.city);
+
 function formatDate(date) {
   let minutes = date.getMinutes();
   let hours = date.getHours();
@@ -62,7 +64,7 @@ function displayForecast(response) {
   console.log(response.data);
 
   let days = ["Fri", "Sat", "Sun", "Mon"];
-  let forecastHtml = "";
+  let forecastHtml = "#";
 
   days.forEach(function (day) {
     forecast.innerHTML =
@@ -88,5 +90,5 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Perth");
-getForecast("Perth");
+getForecast("Paris");
 
