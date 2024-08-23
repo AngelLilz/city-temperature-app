@@ -90,5 +90,5 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Perth");
-getForecast("Paris");
+
 
