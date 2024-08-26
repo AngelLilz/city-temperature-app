@@ -64,12 +64,10 @@ function handleSearchSubmit(event) {
   }
 
 function displayForecast(response) {
-  
-
   let days = ["Fri", "Sat", "Sun", "Mon"];
   let forecastHtml = "";
 
-  days.forEach(function(day) {
+  days.forEach(function (day) {
     forecast.innerHTML =
       forecastHtml +
       `        
