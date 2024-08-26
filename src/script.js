@@ -79,7 +79,7 @@ function displayForecast(response) {
                     <strong>15°</strong>
                 </div> 
                <div class="weather-forecast-temperature"></div>
-            </div> 
+            
         </div>
     `;
   });
