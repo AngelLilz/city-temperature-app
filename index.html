@@ -1,55 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/index.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="src/index.css"/> -->
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
     <title>Ange's weather app</title>
-</head>
+    <style>
+      body {
+        background-color: #f9f7fe;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+      a {
+        color: #885df1;
+      }
+      .my-temperature-app {
+        background: white;
+        max-width: 600px;
+        margin: 45px auto;
+        box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
+        border-radius: 16px;
+        padding: 30px;
+      }
+      header {
+        border-bottom: 1px solid #f9f7fe;
+      }
+      .search-form-input {
+        background-color: #f9f7fe;
+        border: none;
+        border-radius: 6px;
+        width: 75%;
+        font-size: 16px;
+        padding: 15px 20px;
+      }
+      .search-form-button {
+        background: #885df1;
+        padding: 15px 30px;
+        border: none;
+        font-size: 16px;
+        margin-left: 5px;
+        border-radius: 6px;
+        color: white;
+      }
+      main {
+        padding: 30px 0;
+      }
+      .my-temperature-app-data {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .my-temperature-app-city {
+        margin: 0;
+        font-size: 38px;
+        line-height: 48px;
+      }
+      li.my-temperature-app-details {
+        font-size: 16px;
+        color: rgba(39, 33, 66, 0.4);
+        line-height: 24px;
+        font-weight: 500;
+        list-style: none;
+        margin-left: -40px;
+      }
+      .my-temperature-app-details strong {
+        color: #f65282;
+      }
+
+      .my-temperature-app-temperature {
+        display: flex;
+        justify-content: right;
+        font-size: 88px;
+        margin-right: 15px;
+        font-weight: bold;
+        margin-top: -150px;
+      }
+
+      .my-temperature-app-icon {
+        width: 88px;
+        height: 88px;
+      }
+      .my-temperature-app-unit {
+        margin-top: 6px;
+        font-size: 28px;
+      }
+
+      .weather-forecast {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 30px;
+      }
+      .weather-forecast-date {
+        text-align: center;
+        color: rgba(39, 33, 66, 0.4);
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 10px;
+      }
+
+      .weather-forecast-icon {
+        font-size: 38px;
+        text-align: center;
+      }
+
+      .weather-forecast-temperatures {
+        text-align: center;
+        color: #f65282;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+      }
+      .weather-forecast-temperature {
+        padding: 0 10px;
+      }
+      footer {
+        border-top: 1px solid #f9f7fe;
+        padding: 30px 0 0 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 13px;
+        color: rgba (0, 0, 0, 0.6);
+      }
+    </style>
+  </head>
 
   <body>
     <div class="my-temperature-app">
-<header>
-    
-    <form class="search-form" id="search-form">
-        <input type="search" placeholder="Enter a City.." required id="search-form-input"
-        class="search-form-input"/>
-        <input type="submit" value="Search" class="search-form-button"/>
-    </form>
-</header>
-<main>
-   
-    <div class="my-temperature-app-data">
-        <h1 class="my-temperature-app-city"id="city">
-            
-        </h1>
-        <ul> 
+      <header>
+        <form class="search-form" id="search-form">
+          <input
+            type="search"
+            placeholder="Enter a City.."
+            required
+            id="search-form-input"
+            class="search-form-input"
+          />
+          <input type="submit" value="Search" class="search-form-button" />
+        </form>
+      </header>
+      <main>
+        <div class="my-temperature-app-data">
+          <h1 class="my-temperature-app-city" id="city"></h1>
+          <ul>
             <li class="my-temperature-app-details">
-           <span id="time"></span>, 
-        <br />
-            <span id="description"></span>
-        <br />
-            Humidity: 
-            <strong id="humidity">
-            </strong>,
-             Wind: 
-             <strong id="wind-speed">
-            </strong>  
-            </li>      
-        </ul>
+              <span id="time"></span>,
+              <br />
+              <span id="description"></span>
+              <br />
+              Humidity:
+              <strong id="humidity"> </strong>, Wind:
+              <strong id="wind-speed"> </strong>
+            </li>
+          </ul>
+        </div>
+        <div class="my-temperature-app-temperature">
+          <div class="my-temperature-app-icon" id="icon"></div>
+          <div class="my-temperature-app-value" id="temperature"></div>
+          <div class="my-temperature-app-unit">°C</div>
+        </div>
+        <div class="weather-forecast" id="forecast"></div>
+      </main>
+      <footer>
+        This project was coded by
+        <a href="https://github.com/AngelLilz" target="_blank"
+          >Angela Ardizzone</a
+        >
+        and open-sourced on
+        <a href="https://github.com/AngelLilz/Anges-weather-app" target="_blank"
+          >Github</a
+        >
+        and website hosted on
+        <a href="https://app.netlify.com/sites/citytemperatureapp/overview/"
+          >Netlify</a
+        >
+      </footer>
     </div>
-    <div class="my-temperature-app-temperature">
-    <div id="icon"></div>
-        <div class ="my-temperature-app-value" id="temperature"></div>
-        <div class ="my-temperature-app-unit">℃</div>
-    </div>
-    <div class="weather-forecast" id="forecast"></div>
-          
-      
+    <script>
+      function refreshWeather(response) {
+        let temperatureElement = document.querySelector("#temperature");
+        let temperature = response.data.temperature.current;
+        let cityElement = document.querySelector("#city");
+        let descriptionElement = document.querySelector("#description");
+        let humidityElement = document.querySelector("#humidity");
+        let windSpeedElement = document.querySelector("#wind-speed");
+        let timeElement = document.querySelector("#time");
+        let iconElement = document.querySelector("#icon");
 
-</main>
-      <footer>This project was coded by <a href="https://github.com/Ang
+        let date = new Date(response.data.time * 1000);
+
+        cityElement.innerHTML = response.data.city;
+        timeElement.innerHTML = `${date.getDay()}${date.getHours()}:${date.getMinutes()}`;
+
+        timeElement.innerHTML = formatDate(date);
+        descriptionElement.innerHTML = response.data.condition.description;
+        windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
+        humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+        temperatureElement.innerHTML = Math.round(temperature);
+        iconElement.innerHTML = `<img
+                src="${response.data.condition.icon_url}"
+                class="my-temperature-app-icon"
+              />`;
+
+        getForecast(response.data.city);
+      }
+
+      function formatDate(date) {
+        let minutes = date.getMinutes();
+        let hours = date.getHours();
+        let days = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ];
+        let day = days[date.getDay()];
+
+        if (minutes < 10) {
+          minutes = `0${minutes}`;
+        }
+
+        return `${day} ${hours}:${minutes}`;
+      }
+
+      function searchCity(city) {
+        let apiKey = "5a3530d402b8t82b0332df19d81od2ad";
+        let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+        axios.get(apiUrl).then(refreshWeather);
+      }
+
+      function handleSearchSubmit(event) {
+        event.preventDefault();
+        let searchInput = document.querySelector("#search-form-input");
+
+        searchCity(searchInput.value);
+      }
+
+      let searchFormElement = document.querySelector("#search-form");
+      searchFormElement.addEventListener("submit", handleSearchSubmit);
+
+      searchCity("Perth");
+
+      function formatDay(timestamp) {
+        let date = new Date(timestamp * 1000);
+        let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+        return days[date.getDay()];
+      }
+
+      function getForecast(city) {
+        let apiKey = "5a3530d402b8t82b0332df19d81od2ad";
+        let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+        axios(apiUrl).then(displayForecast);
+      }
+
+      function displayForecast(response) {
+        let forecastHtml = "";
+
+        response.data.daily.forEach(function (day, index) {
+          if (index < 5) {
+            forecastHtml =
+              forecastHtml +
+              `
+      <div class="weather-forecast-day">
+                  <div class="weather-forecast-date">${formatDay(
+                    day.time
+                  )}</div>
+                  <img src="${day.condition.icon_url}" class="forecast-icon">
+                  <div class="weather-forecast-temperatures">
+                      <div class="weather-forecast-temperature">
+                      <strong>${Math.round(day.temperature.maximum)}°</strong>
+                  </div>
+                 <div class="weather-forecast-temperature">${Math.round(
+                   day.temperature.minimum
+                 )}°</div>
+              </div>
+          </div>
+      `;
+            let forecastElement = document.querySelector("#forecast");
+            forecastElement.innerHTML = forecastHtml;
+          }
+        });
+      }
+    </script>
+    <!-- <script src="src/script.js"></script> -->
+  </body>
+</html>
